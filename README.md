@@ -50,7 +50,7 @@ dbt_core_databricks/
 └── packages.yml
 ```
 ## Dashboard Screenshot
-![DBT Dashboard]("https://github.com/user-attachments/assets/09704e32-f2af-4356-9ef1-9b3daa5c0ca6)
+![DBT Dashboard](https://github.com/user-attachments/assets/079c09aa-ebac-42cd-8a5a-ef3fd0a6573a)
 
 ## Lineage Graph
 ![Lineage Graph](https://github.com/user-attachments/assets/dfd2a31c-9f6a-49bd-b7d2-d80962faafcf)
