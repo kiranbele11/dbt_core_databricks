@@ -48,7 +48,7 @@ dbt_core_databricks/
 ├── dbt_project.yml
 ├── package-lock.yml
 └── packages.yml
-
+```
 
 ## 📊 Data Model Overview
 
