@@ -49,7 +49,23 @@ dbt_core_databricks/
 ├── package-lock.yml
 └── packages.yml
 ```
+## Dashboard Screenshot
+![DBT Dashboard](images/jobs_dbt.png)
 
+## Lineage Graph
+![Lineage Graph](images/lineage_graph.png)
+
+## SQL Compilation Example
+![SQL Compilation](images/jinja_dbt.png)
+
+## Execution Commands in Databricks
+![Databricks Commands](images/databricks_commands.png)
+
+## Job Execution in DBT
+![Job Execution](images/job_2.png)
+
+## Additional Lineage Visualization
+![DBT Lineage](images/lineage_dbt.png)
 ## 📊 Data Model Overview
 
 ### Bronze Layer (Raw Data)
