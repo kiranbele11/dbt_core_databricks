@@ -3,20 +3,52 @@
 ## Overview
 This project implements data transformations using dbt (data build tool) with Databricks as the underlying data warehouse. The project follows a medallion architecture (Bronze, Silver, Gold layers) for data processing and includes comprehensive testing, documentation, and CI/CD integration.
 
-## 🏗️ Project Structure
+# Project Structure: dbt_core_databricks
 
+```plaintext
 dbt_core_databricks/
+├── analyses/
+│   ├── .gitkeep
+│   └── macro_demo.sql
+├── macros/
+│   ├── .gitkeep
+│   ├── current_timestamp.sql
+│   ├── generate_schema_name.sql
+│   └── multiply_cols.sql
 ├── models/
-│ ├── bronze/ # Raw data ingestion
-│ ├── silver/ # Cleaned and transformed data
-│ ├── gold/ # Business-ready aggregations
-│ └── sources/ # Source definitions
-├── tests/ # Custom data tests
-├── macros/ # Reusable SQL macros
-├── seeds/ # Static data files
-├── analyses/ # Ad-hoc analyses
-├── docs/ # Documentation
-└── snapshots/ # Table snapshots for SCD
+│   ├── bronze/
+│   │   ├── bronze_orders.sql
+│   │   ├── bronze_reviews.sql
+│   │   └── bronze_users.sql
+│   ├── silver/
+│   │   ├── _silver.yml
+│   │   ├── silver_orders.sql
+│   │   ├── silver_products.sql
+│   │   └── silver_users.sql
+│   ├── gold/
+│   │   ├── gold.yml
+│   │   ├── gold_avg_rating__daily.sql
+│   │   └── gold_sales__daily.sql
+│   └── sources/
+│       ├── _sources.md
+│       └── landing_sources.yml
+├── seeds/
+│   └── .gitkeep
+├── snapshots/
+│   ├── .gitkeep
+│   ├── _snapshots.yml
+│   └── products_snapshots.sql
+├── tests/
+│   ├── .gitkeep
+│   └── generic/
+│       └── assert_non_negative.sql
+├── .gitignore
+├── .user.yml
+├── README.md
+├── dbt_project.yml
+├── package-lock.yml
+└── packages.yml
+
 
 ## 📊 Data Model Overview
 
