@@ -50,10 +50,11 @@ dbt_core_databricks/
 └── packages.yml
 ```
 ## Dashboard Screenshot
-![DBT Dashboard](images/jobs_dbt.png)
+![DBT Dashboard](<img width="1470" alt="job_2" src="https://github.com/user-attachments/assets/5b73e568-47c5-470b-849f-0be0b9e4ca5f" />
+)
 
 ## Lineage Graph
-![Lineage Graph](images/lineage_graph.png)
+![Lineage Graph](https://github.com/user-attachments/assets/dfd2a31c-9f6a-49bd-b7d2-d80962faafcf)
 
 ## SQL Compilation Example
 ![SQL Compilation](images/jinja_dbt.png)
