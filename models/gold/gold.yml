@@ -1,0 +1,25 @@
+version: 2
+
+unit_tests:
+  - name: test_gold_avg_rating
+    model: gold_avg_rating__daily
+    given:
+      - input: ref('bronze_reviews')
+        format: csv
+        rows: |
+          id,created_at,product_id,rating
+          1,2018-01-04T00:57:04.845+00:00,1,5
+          2,2018-01-04T00:00:00.140+00:00,1,4
+          3,2020-01-04T00:00:10.040+00:00,2,3
+      - input: ref('silver_products')
+        format: csv
+        rows: |
+          id,product_name
+          1,'product1'
+          2,'product2'
+    expect:
+      format: csv
+      rows: |
+        review_date,product_id,avg_rating
+        2018-01-04,1,4.5
+        2020-01-04,2,3
