@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: landing
-    database: "{{ env_var('DBT_CATALOG')}}"
+    database: "{{ target.catalog }}"
     schema: landing 
     description: >
           The 'landing' schema represents a collection of tables that store data related to orders, products, reviews, and users.
