@@ -1,16 +1,44 @@
 # DBT Core Databricks Project 🚀
 
 ## Overview
-This project implements data transformations using dbt (data build tool) with Databricks as the underlying data warehouse. It enables robust data modeling, testing, and documentation while leveraging the power of Databricks' distributed computing capabilities.
+This project implements data transformations using dbt (data build tool) with Databricks as the underlying data warehouse. The project follows a medallion architecture (Bronze, Silver, Gold layers) for data processing and includes comprehensive testing, documentation, and CI/CD integration.
 
 ## 🏗️ Project Structure
-  dbt_core_databricks/
+
+dbt_core_databricks/
 ├── models/
-├── tests/
-├── macros/
-├── seeds/
-├── analyses/
-└── docs/
+│ ├── bronze/ # Raw data ingestion
+│ ├── silver/ # Cleaned and transformed data
+│ ├── gold/ # Business-ready aggregations
+│ └── sources/ # Source definitions
+├── tests/ # Custom data tests
+├── macros/ # Reusable SQL macros
+├── seeds/ # Static data files
+├── analyses/ # Ad-hoc analyses
+├── docs/ # Documentation
+└── snapshots/ # Table snapshots for SCD
+
+## 📊 Data Model Overview
+
+### Bronze Layer (Raw Data)
+- Direct ingestion from landing zone
+- Tables: orders, products, reviews, users
+- Minimal transformations
+- PII data tagged with 'contains_pii'
+
+### Silver Layer (Transformed)
+- Cleaned and standardized data
+- Business logic applications
+- Key models:
+  - silver_orders: Calculated order amounts
+  - silver_products: Current product information
+  - silver_users: Anonymized user data
+
+### Gold Layer (Business Ready)
+- Aggregated analytics views
+- Key models:
+  - gold_sales__daily: Daily sales analytics
+  - gold_avg_rating__daily: Product rating analytics
 
 ## 🚀 Getting Started
 
@@ -21,15 +49,15 @@ This project implements data transformations using dbt (data build tool) with Da
 
 ### Setup
 1. Clone the repository
-   bash
+bash
 git clone <repository-url>
 
 2. Install dependencies
-   bash
+bash
 pip install dbt-databricks
- 
-3. Configure your profiles.yml with your Databricks credentials (see example below)
-   yaml
+
+3. Configure profiles.yml
+yaml
 dbt_core_databricks:
 outputs:
 dev:
@@ -42,41 +70,48 @@ token: your-token
 threads: 1
 target: dev
 
-## 🛠️ Usage
+## 🛠️ Features
 
-### Basic Commands
+### Data Testing
+- Generic tests for data quality
+- Custom test macro: assert_non_negative
+- Unit tests for transformations
+- Source freshness checks
 
-Run all models
-dbt run
-Test all models
-dbt test
-Generate documentation
-dbt docs generate
-dbt docs serve
-Build specific models
-dbt run --select model_name
+### Macros
+- multiply_columns_and_round: Calculate monetary values
+- generate_schema_name: Custom schema handling
+- current_timestamp: Timestamp utilities
 
-
-### Model Tagging
-Models can be tagged for selective running:
-- `dbt run --select tag:daily`
-- `dbt run --select tag:weekly`
-
-## 📊 Testing
-- Unit tests are located in the `tests` directory
-- Run tests with `dbt test`
-- Custom test macros available in `macros/tests`
+### Snapshots
+- Type 2 SCD for products table
+- Timestamp-based tracking
+- Configured in snapshots/products_snapshots.sql
 
 ## 📚 Documentation
-- Model documentation is written in YAML files alongside models
-- Generate and view docs locally using `dbt docs generate && dbt docs serve`
-- Lineage graphs available in the documentation site
+- Comprehensive table and column descriptions
+- Source documentation in models/sources/_sources.md
+- Generated documentation available via dbt docs
 
-## 🔄 CI/CD
-This project includes automated workflows for:
-- Continuous Integration testing
-- Documentation generation
-- Production deployments
+## 🔄 Development Workflow
+
+### Basic Commands
+bash
+dbt run # Run all models
+dbt test # Run all tests
+dbt docs generate # Generate documentation
+dbt docs serve # Serve documentation locally
+dbt run --select tag:daily # Run tagged models
+
+### Model Tags
+- contains_pii: Models with sensitive data
+- daily: Daily refresh models
+- weekly: Weekly refresh models
+
+## 🔐 Security
+- PII data tagged and tracked
+- Credentials managed via environment variables
+- No sensitive information in repository
 
 ## 🤝 Contributing
 1. Fork the repository
@@ -85,19 +120,6 @@ This project includes automated workflows for:
 4. Push to the branch
 5. Create a Pull Request
 
-## 📝 Best Practices
-- Follow [dbt coding conventions](https://docs.getdbt.com/guides/best-practices)
-- Write descriptions for all models
-- Include tests for all models
-- Document all macros
-
-## 🔐 Security
-- Never commit sensitive information
-- Use environment variables for credentials
-
-## 📫 Support
-For support and questions, please contact:
-- Project maintainers
 
 ---
 Built with ❤️ using [dbt](https://www.getdbt.com/) and [Databricks](https://databricks.com/)
