@@ -50,23 +50,23 @@ dbt_core_databricks/
 └── packages.yml
 ```
 ## Dashboard Screenshot
-![DBT Dashboard](<img width="1470" alt="job_2" src="https://github.com/user-attachments/assets/5b73e568-47c5-470b-849f-0be0b9e4ca5f" />
-)
+![DBT Dashboard]("https://github.com/user-attachments/assets/09704e32-f2af-4356-9ef1-9b3daa5c0ca6)
 
 ## Lineage Graph
 ![Lineage Graph](https://github.com/user-attachments/assets/dfd2a31c-9f6a-49bd-b7d2-d80962faafcf)
 
 ## SQL Compilation Example
-![SQL Compilation](images/jinja_dbt.png)
+![SQL Compilation](https://github.com/user-attachments/assets/f3493ba2-6863-4fd3-9ced-c020c93f25d0)
 
 ## Execution Commands in Databricks
-![Databricks Commands](images/databricks_commands.png)
+![Databricks Commands](https://github.com/user-attachments/assets/8a0406c0-1011-4c6e-a21a-c25908a65437)
 
 ## Job Execution in DBT
-![Job Execution](images/job_2.png)
+![Job Execution](https://github.com/user-attachments/assets/57b3a606-5c16-47c5-9b25-445617613384)
 
 ## Additional Lineage Visualization
-![DBT Lineage](images/lineage_dbt.png)
+![DBT Lineage](https://github.com/user-attachments/assets/0e48dbda-10ee-468a-9d24-4ee49f830f48)
+
 ## 📊 Data Model Overview
 
 ### Bronze Layer (Raw Data)
