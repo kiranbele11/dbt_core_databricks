@@ -171,4 +171,4 @@ dbt run --select tag:daily # Run tagged models
 
 
 ---
-Built with ❤️ using [dbt](https://www.getdbt.com/) and [Databricks](https://databricks.com/)
+Built using [dbt](https://www.getdbt.com/) and [Databricks](https://databricks.com/)
